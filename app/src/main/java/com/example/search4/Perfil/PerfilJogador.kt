@@ -14,9 +14,6 @@ class PerfilJogador : AppCompatActivity() {
     private var player: Player? = null
     private var rank: Ranks? = null
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_jogador)
@@ -31,11 +28,11 @@ class PerfilJogador : AppCompatActivity() {
         showRank(rank!!)
 
 
-
-
         button.setOnClickListener {
 
             val intent = Intent(this, HistoricoMain::class.java)
+
+            intent.putExtra(Player.PLAYER_INFO, player)
 
             startActivityForResult(intent,1)
         }

@@ -1,5 +1,6 @@
 package com.example.search4
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.content.LocusId
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
     private var ranksList:List<PlayerRanks> = emptyList()
     private var rank: Ranks? = null
 
+    var progress:  ProgressDialog? = null
+
+
     private var retrofitInitializer: RetrofitInitializer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +34,16 @@ class MainActivity : AppCompatActivity() {
 
         retrofitInitializer = RetrofitInitializer()
 
+
     }
 
     fun getUsuario(view: View) {
+
+        progress = ProgressDialog(this@MainActivity)
+
+        progress!!.setMessage("Procurando Jogador...")
+        progress!!.setCancelable(false)
+        progress!!.show()
 
         var usuario:String = editUsuario.text.toString()
 
@@ -40,7 +51,12 @@ class MainActivity : AppCompatActivity() {
 //        val call: Call<Player> = retrofitInitializer?.playerService()!!.buscarPlayer(usuario)
         val call: Call<Player> = retrofitInitializer?.playerService()!!.buscarPlayer("paiN KamiKat")
 
+
+
         buscarPlayerAssincrono(call)
+
+
+
     }
 
 
@@ -49,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object : Callback<Player> {
 
             override fun onResponse(call: Call<Player>, response: Response<Player>) {
+
 
                 player = response?.body()!!
 
@@ -60,6 +77,9 @@ class MainActivity : AppCompatActivity() {
                 else{
                     exibirErro()
                 }
+
+
+
 
             }
 
@@ -84,11 +104,14 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<List<PlayerRanks>>, response: Response<List<PlayerRanks>>) {
 
-                ranksList = response?.body()!!
 
-                if (ranksList != null){
+
+                if (response?.body()!! != null){
+
+                    ranksList = response?.body()!!
 
                     rank = configuraRanks(ranksList)
+
 
                     showPerfil(player!!, rank!!)
                 }
@@ -136,6 +159,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showPerfil(currentPlayer: Player, currentPlayerRank: Ranks) {
+
+           if (progress!!.isShowing){
+               progress!!.dismiss()
+           }
 
         val intent= Intent(this, PerfilJogador::class.java)
 
