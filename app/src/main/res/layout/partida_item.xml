@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    tools:context=".Historico.HistoricoMain">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
     <ImageView
         android:id="@+id/iconCampeao"
@@ -13,7 +13,7 @@
         android:layout_height="75dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:src="@drawable/thresh"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,53 +23,53 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginRight="18sp"
+        android:layout_marginRight="12dp"
         app:layout_constraintEnd_toStartOf="@+id/iconCampeao"
         app:layout_constraintTop_toTopOf="@+id/iconCampeao"
-        android:text="20" />
-
-    <TextView
-        android:id="@+id/textKDAg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/kdaIcon"
-        app:layout_constraintTop_toTopOf="@+id/kdaIcon"
-        android:text="10 / 20 / 23" />
+        tools:text="20" />
 
     <ImageView
         android:id="@+id/kdaIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginLeft="136dp"
         android:layout_marginTop="24dp"
         android:src="@drawable/score"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/minionIcon"
-        android:layout_width="34dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="308dp"
-        android:layout_marginLeft="308dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/minion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textKDAg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/kdaIcon"
+        app:layout_constraintTop_toTopOf="@+id/kdaIcon"
+        tools:text="10 / 20 / 23" />
 
     <TextView
-        android:id="@+id/goldText"
+        android:id="@+id/textGold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toEndOf="@+id/minionIcon"
-        app:layout_constraintTop_toTopOf="@+id/minionIcon"
-        android:text="234" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/goldIcon"
+        app:layout_constraintTop_toTopOf="@+id/goldIcon"
+        tools:text="284724987" />
+
+    <ImageView
+        android:id="@+id/goldIcon"
+        android:layout_width="34dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginLeft="276dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/minion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,6 @@ package com.example.search4.Perfil
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import com.example.search4.Historico.HistoricoMain
 import com.example.search4.R
@@ -13,6 +12,7 @@ class PerfilJogador : AppCompatActivity() {
 
     private var player: Player? = null
     private var rank: Ranks? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class PerfilJogador : AppCompatActivity() {
 
     fun  showPlayer(player: Player){
         txtNomeJogador.text = player.name
-        txtLevel.text = player.summonerLevel
+        txtLevel1.text = player.summonerLevel
     }
 
     fun showRank(ranks: Ranks){

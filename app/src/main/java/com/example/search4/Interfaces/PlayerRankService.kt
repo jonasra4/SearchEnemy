@@ -7,6 +7,6 @@ import retrofit2.http.Path
 
 interface PlayerRankService {
 
-    @GET("{id}?api_key=RGAPI-fa510811-cd40-41a7-bd61-3ff65ab17ac3")
+    @GET("{id}?api_key=RGAPI-efe53f4c-d33b-4564-9c4a-ecd5aaae6c93")
     fun buscarPlayerRank(@Path("id") id:String): Call<List<PlayerRanks>>
 }

@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
 
 //        val call: Call<Player> = retrofitInitializer?.playerService()!!.buscarPlayer(usuario)
-        val call: Call<Player> = retrofitInitializer?.playerService()!!.buscarPlayer("paiN KamiKat")
+        val call: Call<Player> = retrofitInitializer?.playerService()!!.buscarPlayer("Caipirapora")
 
 
 

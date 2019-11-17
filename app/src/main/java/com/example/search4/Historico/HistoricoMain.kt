@@ -1,25 +1,27 @@
 package com.example.search4.Historico
 
 import android.app.ProgressDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ListView
 import android.widget.Toast
+import com.example.search4.DetalhesMatche.*
 import com.example.search4.DetalhesMatche.DataJson.MatcheMain
-import com.example.search4.DetalhesMatche.Equipe
-import com.example.search4.DetalhesMatche.Partida
-import com.example.search4.DetalhesMatche.PlayerStatus
-import com.example.search4.DetalhesMatche.RetrofitDetalhes
 import com.example.search4.Perfil.Player
 import com.example.search4.R
 //import com.example.search4.RetrofitDetalhes
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 
 class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
 
+    var progressDialog:  ProgressDialog? = null
 
     private var retrofitDetalhes: RetrofitDetalhes? = null
 
@@ -29,6 +31,7 @@ class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private var historico = ArrayList<PlayerStatus>()
 
+    lateinit var adapter : HistoricoAdapter
 
     private var matchList = ArrayList<Match>()
 
@@ -38,8 +41,26 @@ class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        progressDialog = ProgressDialog(this)
+        progressDialog!!.setMessage("Listando Histórico")
+        progressDialog!!.setCancelable(false)
+        progressDialog!!.show()
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_historico_main)
+//        setContentView(R.layout.activity_historico_main)
+
+
+        val listView = ListView(this)
+        this.setContentView(listView)
+
+        adapter = HistoricoAdapter(this, historico)
+
+        listView.adapter = adapter
+
+        listView.setOnItemClickListener(this)
+
+
 
         retrofitDetalhes = RetrofitDetalhes()
 
@@ -48,15 +69,20 @@ class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
         player = intent.getSerializableExtra(Player.PLAYER_INFO) as Player
 
 
-        getMatchList("tvZOMhsc7_m8T2SzhrsCiLqweff5kb253_X1tDg-eIa5jH8")
+//        getMatchList("tvZOMhsc7_m8T2SzhrsCiLqweff5kb253_X1tDg-eIa5jH8")
+
+        getMatchList(player?.accountId!!)
+
     }
 
 
     fun getMatchList(accId: String) {
 
-        var acc_id: String = "ZUOO_6JtmdUA8CtuuhjkxRGzAGJLm8BOoufoAFA_ODs"
+//        var acc_id: String = "ZUOO_6JtmdUA8CtuuhjkxRGzAGJLm8BOoufoAFA_ODs"
 
-        val call: Call<MatchList> = retrofitDetalhes?.matchesService()!!.buscarMatches(acc_id)
+        val call: Call<MatchList> = retrofitDetalhes?.matchesService()!!.buscarMatches(accId)
+
+
 
         buscarAssincrono(call)
 
@@ -98,7 +124,6 @@ class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     fun getMatchesMains(id_match:String){
 
-        println(id_match)
         val call: Call<MatcheMain> = retrofitDetalhes?.matchesDetailsService()!!.buscarMatchDetails(id_match)
 
         buscarMatchDetailsAssincrono(call)
@@ -154,6 +179,7 @@ class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
         equipe.nomeEquioe = equipeName
         equipe.venceu = matcheMain.participants?.get(i).stats?.win
 
+        println("slfkggoaerçgoiehrgejgsldgdlifgbsfkuhbkusdhskudhhhhhhhhhhhhhhhhhhh")
         for (x in 0 + i until 5 + i){
             var currentPlayer = PlayerStatus()
 
@@ -165,7 +191,9 @@ class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
             currentPlayer.assistencias = matcheMain.participants.get(x).stats?.assists
 
             currentPlayer.campeao = matcheMain.participants.get(x).participantId
-            currentPlayer.cs = matcheMain.participants.get(x).stats?.totalMinionsKilled
+
+            currentPlayer.cs = matcheMain.participants.get(x).stats?.neutralMinionsKilled!! + matcheMain.participants.get(x).stats?.totalMinionsKilled!!
+
             currentPlayer.gold = matcheMain.participants.get(x).stats?.goldEarned
 
             currentPlayer.level = matcheMain.participants.get(x).stats?.champLevel
@@ -176,6 +204,12 @@ class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
 
             if (currentPlayer.nome == player?.name){
                 historico.add(currentPlayer)
+//                println(currentPlayer.nome + " " + player?.name)
+                adapter!!.notifyDataSetChanged()
+
+                if (progressDialog!!.isShowing){
+                    progressDialog!!.dismiss()
+                }
             }
         }
 
@@ -186,13 +220,28 @@ class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     }
 
+
     private fun exibirErro(t: Throwable) {
         Toast.makeText(this, "Jogador não encontrado", Toast.LENGTH_SHORT).show()
     }
 
 
 
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+        val partidaSelecionada = partidas.get(p2)
+
+        val intent = Intent(this, PartidaMain::class.java)
+
+        intent.putExtra(Partida.PARTIDA_INFO, partidaSelecionada)
+
+        startActivityForResult(intent,1)
+
+
     }
 }
+
+
+
+
+

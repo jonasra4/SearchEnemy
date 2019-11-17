@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Detalhes.DetalhesPartidaMain"></activity>
+        <activity android:name=".DetalhesMatche.PartidaMain"></activity>
+        <activity android:name=".DetalhesMatche.ParidaMain" />
+        <activity android:name=".Detalhes.DetalhesPartidaMain" />
         <activity android:name=".Historico.HistoricoMain" />
         <activity android:name=".Perfil.PerfilJogador" />
         <activity android:name=".MainActivity">

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetalhesMatche.PartidaMain">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+
+    <fragment
+        android:id="@+id/fragEquipe1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.ResumoEquipePartida"/>
+
+    <fragment
+        android:id="@+id/fragJogador1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+    <fragment
+        android:id="@+id/fragJogador2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+    <fragment
+        android:id="@+id/fragJogador3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+    <fragment
+        android:id="@+id/fragJogador4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+    <fragment
+        android:id="@+id/fragJogador5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+
+
+
+
+
+
+    <fragment
+        android:id="@+id/fragEquipe2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.ResumoEquipePartida"/>
+
+    <fragment
+        android:id="@+id/fragJogador6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+    <fragment
+        android:id="@+id/fragJogador7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+    <fragment
+        android:id="@+id/fragJogador8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+    <fragment
+        android:id="@+id/fragJogador9"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+    <fragment
+        android:id="@+id/fragJogador10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.search4.DetalhesMatche.JogadorEquipe"/>
+
+
+
+
+</LinearLayout>
+    </ScrollView>

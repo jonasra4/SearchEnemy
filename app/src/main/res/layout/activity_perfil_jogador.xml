@@ -196,7 +196,7 @@
         app:srcCompat="@android:drawable/presence_invisible" />
 
     <TextView
-        android:id="@+id/txtLevel"
+        android:id="@+id/txtLevel1"
         android:layout_width="33dp"
         android:layout_height="0dp"
         android:layout_marginTop="152dp"

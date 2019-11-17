@@ -1,6 +1,8 @@
 package com.example.search4.DetalhesMatche
 
-class PlayerStatus {
+import java.io.Serializable
+
+class PlayerStatus: Serializable{
 
     var partidaId: Int? = null
     var participanteId: String? = null
