@@ -13,11 +13,12 @@
         android:layout_height="75dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/thresh"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textColor="#adb3cc"
         android:id="@+id/txtLevel1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,6 +41,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textColor="#adb3cc"
+
         android:id="@+id/textKDAg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,6 +54,8 @@
         tools:text="10 / 20 / 23" />
 
     <TextView
+        android:textColor="#adb3cc"
+
         android:id="@+id/textGold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,7 +68,7 @@
 
     <ImageView
         android:id="@+id/goldIcon"
-        android:layout_width="34dp"
+        android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="276dp"
         android:layout_marginLeft="276dp"

@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <!--    <color name="colorPrimary">#008577</color>-->
+        <color name="colorPrimary">#5C4C9F</color>
+
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+
+
+    <color name="ROXO">#5C4C9F</color>
+    <color name="CINZA">#808080</color>
+
+    <color name="BackgroundBlack">#101117</color>
+    <color name="TextGray">#adb3cc</color>
+
+    <color name="colorVitoria">#1b242c</color>
+    <color name="colorDerrota">#2c1b20</color>
+
 
 </resources>

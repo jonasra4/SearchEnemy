@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+//        setTitle("Teemo.gg")
+
+        getSupportActionBar()?.hide()
+
 
         retrofitInitializer = RetrofitInitializer()
 
@@ -49,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
 
 //        val call: Call<Player> = retrofitInitializer?.playerService()!!.buscarPlayer(usuario)
-        val call: Call<Player> = retrofitInitializer?.playerService()!!.buscarPlayer("Caipirapora")
+        val call: Call<Player> = retrofitInitializer?.playerService()!!.buscarPlayer("paiN KamiKat")
 
 
 

@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface MatchDetailsService {
-    @GET("{match_id}?api_key=RGAPI-efe53f4c-d33b-4564-9c4a-ecd5aaae6c93")
+    @GET("{match_id}?api_key=RGAPI-ae3ed035-8329-447a-9e1d-219ca0477067")
     fun buscarMatchDetails(@Path("match_id") match_id:String): Call<MatcheMain>
 }

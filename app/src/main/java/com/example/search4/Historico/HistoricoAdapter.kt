@@ -55,10 +55,10 @@ class HistoricoAdapter (
         holder.txtMinion.text = veiculo.cs.toString()
 
         if (veiculo.win == true){
-            holder.view.setBackgroundColor(Color.GREEN)
+            holder.view.setBackgroundColor(Color.parseColor("#1b242c"))
         }
         else if(veiculo.win == false){
-            holder.view.setBackgroundColor(Color.RED)
+            holder.view.setBackgroundColor(Color.parseColor("#40282f"))
         }
         else{
             holder.view.setBackgroundColor(Color.GRAY)

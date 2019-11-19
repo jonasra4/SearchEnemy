@@ -18,6 +18,8 @@ class PerfilJogador : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_jogador)
 
+        getSupportActionBar()?.hide()
+
         val intent = intent
 
         player = intent.getSerializableExtra(Player.PLAYER_INFO) as Player
@@ -62,10 +64,10 @@ class PerfilJogador : AppCompatActivity() {
 
         }
 
-        if(ranks.flex3v3Tier != null){
-            textFlex3v3.text = ranks.flex3v3Tier+ " " + ranks.flex3v3Rank
-            showEmblemaRank(imgFlex3v3, ranks.flex3v3Tier!!)
-        }
+//        if(ranks.flex3v3Tier != null){
+//            textFlex3v3.text = ranks.flex3v3Tier+ " " + ranks.flex3v3Rank
+//            showEmblemaRank(imgFlex3v3, ranks.flex3v3Tier!!)
+//        }
     }
 
     fun showEmblemaRank(img:ImageView, tier: String){

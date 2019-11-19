@@ -49,7 +49,8 @@ class HistoricoMain : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_historico_main)
-
+        getSupportActionBar()?.hide()
+//        setTitle("Histórico de partidas")
 
         val listView = ListView(this)
         this.setContentView(listView)
